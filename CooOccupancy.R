@@ -153,28 +153,22 @@ nd <- data.frame(year=c('01','02','03'))
 E.det <- predict(m1, type='det', newdata=nd)
 E.det
 
-#Predict returns the predictions along with SE and CI.
-ext1
-ext2
+#Plots
+
+x <- x
+estimate <- 0.897
+lower <- 0.653
+upper <- 0.976
+
+initoccu <- data.frame(estimate, lower, upper, x)
+initoccu
 
 
 op <- par(mfrow=c(4,1), mai=c(0.6, 0.6, 0.1, 0.1))
-
-x <- c(1,1,1)
-x
-y <- c(0.653, 0.897, 0.976)
-y
-dat <- data.frame(x,y)
-dat
-
-l <- 1
-m <- 0.897
-
-ppar <- data.frame(l,m)
-ppar
-
-plot(dat, pch = "-", cex = 1.5, col = 4, type = "o", lwd = 1.5, ylim = c(0,1), xaxt = "n", xlab = "", ylab = "First year occupancy (ψ)")
-points(ppar, type = "p", col=1, lwd = 1, pch=16)
+plot(x, initoccu$estimate, pch=1, xaxt='n', xlab="",
+     ylab = "First year occupancy (ψ)",
+     ylim=c(0,1), col=4)
+arrows(x, initoccu$lower, x, initoccu$upper, code=3, angle=90, length=0.05, col=4, lty = 1, lwd = 1.5)
 legend("topright", c('Parameter', 'Estimate'), col=c(1,4), pch=c(16, 1),
        cex=1.4)
 
