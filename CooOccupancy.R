@@ -5,7 +5,7 @@ library(tidyverse)
 library(lubridate)
 library(ggplot2)
 
-##Load Data
+##Load Data/
 
 dat <- read.csv("~/cooperpafull.csv", header = TRUE, sep = ",")
 head(dat,2)
